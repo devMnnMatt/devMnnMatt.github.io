@@ -20,13 +20,7 @@ whois = [
 ];
 
 whoami = [
-  "<br>",
-  "===========================================================================================================",
-  "                                      Currently logged as 'Visitor'.                                       ",                 
-  "===========================================================================================================",
-  "For privacy reasons we cannot know who you are or what you are browsing with.",
-  "Also remember that no one really knows who he is, it's up to us to discover who we really are every day.",
-  "<br>"
+  "guest"
 ];
 
 social = [
