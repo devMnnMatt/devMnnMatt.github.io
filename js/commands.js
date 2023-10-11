@@ -4,12 +4,16 @@ var instagram = "https://www.instagram.com/mnn.matt_/";
 var discord = "https://discordid.netlify.app/?id=611920914606718996"
 var github = "https://github.com/devMnnMatt/";
 var email = 'mailto:dev.mannomatteo@gmail.com';
-var ytcredits = "https://www.youtube.com/watch?v=KtYby2QN0kQ"
+var ytcredits = "https://www.youtube.com/watch?v=KtYby2QN0kQ";
+var youtube = "https://www.youtube.com/";
+var twitch = "https://www.twitch.tv/";
+var anilist = "https://anilist.co/";
+var netflix = "https://www.netflix.com/";
 
 whois = [
   "<br>",
   "Hey, I'm Matt. (full name ➜ Matteo)",
-  "Currently a web developer, studying HTML, CSS, and JavaScript.",
+  "Currently a web developer that is studying HTML, CSS, and JavaScript.",
   "This is one of my projects that I've worked on recently.",
   "",
   "<br>"
@@ -27,10 +31,13 @@ whoami = [
 
 social = [
   "<br>",
-  'instagram      <a href="' + instagram + '" target="_blank">instagram/mnn.matt_' + '</a>',
-  'discord        <a href="' + discord + '" target="_blank">discord/mnn.matt' + '</a>',
-  'github         <a href="' + github + '" target="_blank">github/devMnnMatt' + "</a>",
-  'spotify        <a href="' + spotify + '" target="_blank">spotify/user/mnn.matt_' + '</a>',
+  "===============================================",
+  "               List of my socials              ",
+  "===============================================",
+  '     instagram      <a href="' + instagram + '" target="_blank">instagram/mnn.matt_' + '</a>',
+  '     discord        <a href="' + discord + '" target="_blank">discord/mnn.matt' + '</a>',
+  '     github         <a href="' + github + '" target="_blank">github/devMnnMatt' + "</a>",
+  '     spotify        <a href="' + spotify + '" target="_blank">spotify/user/mnn.matt_' + '</a>',
   "<br>"
 ];
 
@@ -42,22 +49,24 @@ secret = [
 
 help = [
   "<br>",
-  '┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑',
-  '|<span class="command"> whois</span>          Who is Matt?               |',
-  '|<span class="command"> whoami</span>         Who are you?               |',
-  '|<span class="command"> social</span>         Display social networks    |',
-  '|<span class="command"> history</span>        View command history       |',
-  '|<span class="command"> help</span>           This command               |',
-  '|<span class="command"> email</span>          Contact me                 |',
-  '|<span class="command"> clear</span>          Clear terminal             |',
-  '|<span class="command"> restart</span>        Restart the terminal       |',
-  '|-------------------------------------------|',
-  '|<span class="command"> dir</span>            View files in a Directory  |',
-  '|<span class="command"> pwd</span>            Print Working Directory    |',
-  '|<span class="command"> echo</span>           Write things here          |',
-  '|<span class="command"> password</span>       You need to find it first  |',
-  '|<span class="command"> credits</span>        Just me Explaining         |',
-  '┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙',
+  '┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑',
+  '|<span class="command"> help</span>              This command              |',
+  '|<span class="command"> whois</span>             Who is Matt?              |',
+  '|<span class="command"> whoami</span>            Who are you?              |',
+  '|<span class="command"> email</span>             Contact me                |',
+  '|<span class="command"> social</span>            Display social networks   |',
+  '|<span class="command"> redirect</span>          A bunch of main sites     |',
+  '|---------------------------------------------|',
+  '|<span class="command"> history</span>           View command history      |',
+  '|<span class="command"> clear</span>             Clear terminal            |',
+  '|<span class="command"> restart</span>           Restart the terminal      |',
+  '|---------------------------------------------|',
+  '|<span class="command"> dir</span>               View files in a Directory |',
+  '|<span class="command"> pwd</span>               Print Working Directory   |',
+  '|<span class="command"> echo</span>              Write things here         |',
+  '|<span class="command"> password</span>          You need to find it first |',
+  '|<span class="command"> credits</span>           Just me Explaining        |',
+  '┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙',
   "<br>",
 ];
 
@@ -87,14 +96,29 @@ dir = [
   "<br>",
 ];
 
-credits =[
+credits = [
   "<br>",
-  "=============================================================================================================================================",
-  "                                                          A big thanks to ForrestKnight                                                      ",                 
-  "=============================================================================================================================================",
-  "I really want to thanks ForrestKnight for this site. Following the video on yt I challenged myself to re-create this site.",
-  "Obviously, this site is actually a copy of the original, but it's a little bit different. That helped me to learn HTML/CSS and JavaScript.",
-  'Check Out the video  ➜ <a href="' + ytcredits + '" target="_blank"> youtube/watch/I made a TERMINAL website' + '</a>',
+  "============================================================================================",
+  "                                A big thanks to ForrestKnight                               ",                 
+  "============================================================================================",
+  "I really want to thanks ForrestKnight for this site.", 
+  "Following the video on yt I challenged myself to re-create this site.",
+  "Obviously, this site is actually a copy of the original, with my personal taste.",
+  "That helped me to learn HTML/CSS and JavaScript.",
+  'Check Out the video ➜ <a href="' + ytcredits + '" target="_blank"> youtube/watch/I made a TERMINAL website' + '</a>',
+  "<br>",
+
+];
 
 
+redirect = [
+  "<br>",
+  "===============================================",
+  "          List of available redirects          ",
+  "===============================================",
+  '<span class="command"> yotube  (yt)</span>        Redirect to Youtube',
+  '<span class="command"> twitch  (ttv)</span>       Redirect to Twitch',
+  '<span class="command"> netflix</span>             Redirect to Netflix',
+  '<span class="command"> anilist (al)</span>        Redirect to Anilist',
+  "<br>",
 ];

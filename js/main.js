@@ -157,6 +157,7 @@ function commander(cmd) {
     break;
 
     // socials
+
     case "instagram":
       addLine("Opening Instagram...", "color2", 0);
       newTab(instagram);
@@ -170,7 +171,35 @@ function commander(cmd) {
       newTab(github);
       break;
 
+    // redirects
+    case "redirect":
+    case "redirects":
+      loopLines(redirect, "color2 margin", 80);
+    break;
+
+    case "yt":
+    case "youtube":
+      addLine("Redirecting to Youtube...", "color2", 0);
+      newTab(youtube);
+      break;
     
+    case "ttv":
+    case "twitch":
+        addLine("Redirecting to Twitch...", "color2", 0);
+        newTab(twitch);
+        break;
+
+    case "al":    
+    case "anilist":
+        addLine("Redirecting to Anilist...", "color2", 0);
+        newTab(anilist);
+        break;
+
+    case "netflix":    
+        addLine("Redirecting to Netflix...", "color2", 0);
+        newTab(netflix);
+        break;
+
 
     default:
       addLine("<span class=\"inherit\">⚠︎ Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
