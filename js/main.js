@@ -179,24 +179,24 @@ function commander(cmd) {
 
     case "yt":
     case "youtube":
-      addLine("Redirecting to Youtube...", "color2", 0);
+      addLine('Redirecting to <a href="' + youtube + '" target="_blank">Youtube' + '</a>',)
       newTab(youtube);
       break;
     
     case "ttv":
     case "twitch":
-        addLine("Redirecting to Twitch...", "color2", 0);
+        addLine('Redirecting to <a href="' + twitch + '" target="_blank">Twitch' + '</a>',)
         newTab(twitch);
         break;
 
     case "al":    
     case "anilist":
-        addLine("Redirecting to Anilist...", "color2", 0);
+        addLine('Redirecting to <a href="' + anilist + '" target="_blank">AniList' + '</a>',)
         newTab(anilist);
         break;
 
     case "netflix":    
-        addLine("Redirecting to Netflix...", "color2", 0);
+        addLine('Redirecting to <a href="' + netflix + '" target="_blank">Netflix' + '</a>',)
         newTab(netflix);
         break;
 
