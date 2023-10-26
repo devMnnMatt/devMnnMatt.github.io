@@ -12,10 +12,21 @@ var netflix = "https://www.netflix.com/";
 
 whois = [
   "<br>",
-  "Hey, I'm Matt. (full name ➜ Matteo)",
-  "Currently a web developer that is studying HTML, CSS, and JavaScript.",
-  "This is one of my projects that I've worked on recently.",
-  "",
+"&#128064; Hi, I'm Matt.",
+
+"&#127757; Living in Italy [(my current time)](https://time.is/Italy)",
+
+"&#128218; Currently studying IT and Economy",
+
+"&#128187; Trying to be a Web Dev dressed up with an old money style one day"
+
+"&#128193; Check out my anime list to see scores (categorized)",
+
+"&#127925; See my '[Now Playing](https://devmnnmatt.github.io/nowplaying)' page",
+
+"&#128499; Reach me on [discord](https://discordid.netlify.app/?id=611920914606718996)",
+
+"&#128679; Working on some projects → [my terminal site](https://devmnnmatt.github.io/)",
   "<br>"
 ];
 
