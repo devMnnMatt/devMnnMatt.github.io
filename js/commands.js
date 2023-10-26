@@ -14,19 +14,17 @@ whois = [
   "<br>",
 "&#128064; Hi, I'm Matt.",
 
-"&#127757; Living in Italy [(my current time)](https://time.is/Italy)",
+'&#127757; Living in Italy <a href="' + timeSite + '" target="_blank">(my current time)' + '</a>',
 
 "&#128218; Currently studying IT and Economy",
 
-"&#128187; Trying to be a Web Dev dressed up with an old money style one day"
+"&#128187; Trying to be a Web Dev dressed up with an old money style one day",
 
-"&#128193; Check out my anime list to see scores (categorized)",
+'&#127925; See my <a href="' + nowplaying + '" target="_blank">Now playing' + '</a>' + " page",
 
-"&#127925; See my '[Now Playing](https://devmnnmatt.github.io/nowplaying)' page",
+'&#128227 Reach me on <a href="' + discord + '" target="_blank">discord' + '</a>',
 
-"&#128499; Reach me on [discord](https://discordid.netlify.app/?id=611920914606718996)",
-
-"&#128679; Working on some projects → [my terminal site](https://devmnnmatt.github.io/)",
+"&#128679; Working on some projects → this site...",
   "<br>"
 ];
 
