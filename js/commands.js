@@ -9,6 +9,9 @@ var youtube = "https://www.youtube.com/";
 var twitch = "https://www.twitch.tv/";
 var anilist = "https://anilist.co/";
 var netflix = "https://www.netflix.com/";
+var nowplaying = "https://devmnnmatt.github.io/nowplaying";
+var timeSite = "https://time.is/Italy";
+
 
 whois = [
   "<br>",
