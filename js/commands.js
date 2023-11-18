@@ -57,6 +57,7 @@ help = [
   "<br>",
   '┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑',
   '|<span class="command"> help</span>              This command              |',
+  '|<span class="command"> music</span>             Now Playing Music info    |',
   '|<span class="command"> whois</span>             Who is Matt?              |',
   '|<span class="command"> whoami</span>            Who are you?              |',
   '|<span class="command"> email</span>             Contact me                |',
