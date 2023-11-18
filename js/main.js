@@ -118,7 +118,7 @@ function commander(cmd) {
       addLine("<br>", "command", 80 * commands.length + 50);
       break;
     case "email":
-      addLine('Opening mailto: <a href="mailto: dev.mannomatteo@gmail.com">dev.mannomatteo@gmail.com</a>', "color2", 80);
+      addLine('Opening mailto: <a href="mailto: mnnmatt@duck.com">mnnmatt@duck.com</a>', "color2", 80);
       newTab(email);
       break;
     case "clear":
@@ -258,15 +258,16 @@ function nowPlaying() {
         var artistName = response.recenttracks.track[0].artist['#text'];
         
         if (response.recenttracks.track[0]['@attr'] && response.recenttracks.track[0]['@attr']['nowplaying']) {
-          addLine('Now Playing: ' + trackName + ' by ' + artistName, 'color2', 0);
+          addLine('<a href="' + nowplaying + '" target="_blank">Now Playing:' + '</a>' + ' ' + trackName + ' by ' + artistName, 0);
         } else {
-          addLine('Currently not playing any music.', 'color2', 0);
+          addLine('<a href="' + nowplaying + '" target="_blank">Currently not playing any music.</a>', 0);
+  
         }
       } else {
-        addLine('No recent tracks found.', 'color2', 0);
+        addLine('<a>No recent tracks found.</a>', 0);
       }
     } else {
-      addLine('Error fetching music information.', 'color2', 0);
+      addLine('<a>Error fetching music information.</a>', 0);
     }
   };
 
