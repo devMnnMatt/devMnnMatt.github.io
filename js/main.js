@@ -199,6 +199,13 @@ function commander(cmd) {
         addLine('Redirecting to <a href="' + netflix + '" target="_blank">Netflix' + '</a>',)
         newTab(netflix);
         break;
+    
+    case "music":
+    case "nowplaying":
+    case "now playing":
+    case "np":
+        nowPlaying();
+        break;
 
 
     default:
@@ -234,8 +241,41 @@ function addLine(text, style, time) {
   }, time);
 }
 
-function loopLines(name, style, time) {
-  name.forEach(function(item, index) {
-    addLine(item, style, index * time);
-  });
+function nowPlaying() {
+  var lastfmUsername = 'mnnmatt';
+  var lastfmApiKey = 'd4ba48761fdab63ab7d9300a74a035b1';
+  var lastfmApiUrl = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' + lastfmUsername + '&api_key=' + lastfmApiKey + '&format=json&limit=1';
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', lastfmApiUrl, true);
+
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+
+      if (response.recenttracks && response.recenttracks.track.length > 0) {
+        var trackName = response.recenttracks.track[0].name;
+        var artistName = response.recenttracks.track[0].artist['#text'];
+        
+        if (response.recenttracks.track[0]['@attr'] && response.recenttracks.track[0]['@attr']['nowplaying']) {
+          addLine('Now Playing: ' + trackName + ' by ' + artistName, 'color2', 0);
+        } else {
+          addLine('Currently not playing any music.', 'color2', 0);
+        }
+      } else {
+        addLine('No recent tracks found.', 'color2', 0);
+      }
+    } else {
+      addLine('Error fetching music information.', 'color2', 0);
+    }
+  };
+
+  xhr.send();
 }
+
+  
+  function loopLines(name, style, time) {
+    name.forEach(function(item, index) {
+      addLine(item, style, index * time);
+    });
+  }
