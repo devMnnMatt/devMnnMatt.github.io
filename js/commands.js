@@ -40,10 +40,10 @@ social = [
   "===============================================",
   "               List of my socials              ",
   "===============================================",
-  '     instagram      <a href="' + instagram + '" target="_blank">instagram/mnn.matt_' + '</a>',
-  '     discord        <a href="' + discord + '" target="_blank">discord/mnn.matt' + '</a>',
-  '     github         <a href="' + github + '" target="_blank">github/devMnnMatt' + "</a>",
-  '     spotify        <a href="' + spotify + '" target="_blank">spotify/user/mnn.matt_' + '</a>',
+  '<span class="command"> instagram           </span><a href="' + instagram + '" target="_blank">instagram/mnn.matt_' + '</a>',
+  '<span class="command"> discord             </span><a href="' + discord + '" target="_blank">discord/mnn.matt' + '</a>',
+  '<span class="command"> github              </span><a href="' + github + '" target="_blank">github/devMnnMatt' + "</a>",
+  '<span class="command"> spotify             </span><a href="' + spotify + '" target="_blank">spotify/user/mnn.matt_' + '</a>',
   "<br>"
 ];
 
