@@ -306,78 +306,83 @@ setTimeout(function () {
   window.scrollTo(0, document.body.offsetHeight)
 }, _0x4fe9e6)
 }
+
+const userId = '611920914606718996'
+
 async function fetchData() {
-try {
-  const _0x50c9c3 = await fetch(
-      'https://api.lanyard.rest/v1/users/611920914606718996'
-    ),
-    _0x3bade5 = await _0x50c9c3.json()
-  nowplayingds(_0x3bade5)
-} catch (_0x24e9a3) {
-  console.error('Error fetching data:', _0x24e9a3)
-}
-}
-function nowplayingds(_0x5cd713) {
-if (_0x5cd713.success) {
-  const _0x3f64ac = _0x5cd713.data.spotify
-  if (_0x5cd713.data.listening_to_spotify) {
-    const _0x94c7e7 = _0x3f64ac.artist,
-      _0x533917 = _0x3f64ac.song,
-      _0x56a949 = _0x3f64ac.track_id,
-      _0x4f863f =
-        'https://open.spotify.com/track/' + encodeURIComponent(_0x56a949)
-    addLine(
-      'Now Playing: <a href="' +
-        _0x4f863f +
-        '" target="_blank">' +
-        _0x533917 +
-        '</a> by ' +
-        _0x94c7e7 + ".",
-      'mint',
-      0
-    )
-  } else {
-    addLine('The music is currently paused.', 'inherit', 0)
+  try {
+    const response = await fetch('http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mnnmatt&api_key=dca6a275e2b39e1d9816355f961db4b9&format=json');
+    const data = await response.json();
+    
+    nowplayingds(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
   }
-} else {
-  addLine('Error gathering information', 'error', 0)
 }
+
+function nowplayingds(data) {
+  if (data.recenttracks && data.recenttracks.track.length > 0) {
+    const track = data.recenttracks.track[0];
+    const artist = track.artist['#text'];
+    const song = track.name;
+    const spotifyUrl = getSpotifyUrl(track);
+    const isPlaying = '@attr' in track && 'nowplaying' in track['@attr'];
+    
+    if (isPlaying) {
+      const trackUrl = spotifyUrl ? `<a href="${spotifyUrl}" target="_blank">${song}</a>` : song;
+      addLine(`Now Playing: ${trackUrl} by ${artist}.`, 'mint', 0);
+    } else {
+      addLine('The music is currently paused.', 'inherit', 0);
+    }
+  } else {
+    addLine('No track is currently playing.', 'inherit', 0);
+  }
 }
+
+function getSpotifyUrl(track) {
+  if (track && track.url && track.url.includes('spotify')) {
+    return track.url;
+  } else {
+    const artist = encodeURIComponent(track.artist['#text']);
+    const song = encodeURIComponent(track.name);
+    return `https://open.spotify.com/search/${artist}%20${song}`;
+  }
+}
+
 function loopLines(_0x58c4ea, _0x4903af, _0x19c91a) {
 _0x58c4ea.forEach(function (_0x2a45d0, _0x4e2459) {
   addLine(_0x2a45d0, _0x4903af, _0x4e2459 * _0x19c91a)
 })
 }
+
 function displayActivityInfo(_0x3cdba4) {
-const _0x1a3700 = 'https://api.lanyard.rest/v1/users/' + _0x3cdba4
-fetch(_0x1a3700)
-  .then((_0x2f4b4c) => {
-    if (!_0x2f4b4c.ok) {
-      throw new Error('HTTP error! Status: ' + _0x2f4b4c.status)
-    }
-    return _0x2f4b4c.json()
-  })
-  .then((_0x28a395) => {
-    if (_0x28a395.success) {
-      const { discord_user: _0x54d82a, activities: _0x279893 } =
-        _0x28a395.data
-      addLine('<span class="command">User: </span> ' + _0x54d82a.username, 'color2 margin', 80)
-      const _0x32d9f7 = _0x279893.filter(
-        (_0x21efe4) => _0x21efe4.name !== 'Spotify'
-      )
-      _0x32d9f7.length > 0
-        ? _0x32d9f7.forEach((_0xc45b6c) => {
-            addLine('<span class="command">Using: </span> '+ _0xc45b6c.name, 'color2 margin', 80)
-            addLine(' ' + _0xc45b6c.state, 'color2 margin', 80)
-            addLine(' ' + _0xc45b6c.details, 'color2 margin', 80)
-          })
-        : addLine('No activities at the moment.', 'inherit margin', 80)
-    } else {
-      addLine('Failed to fetch data.', 'error', 80)
-    }
-  })
-  .catch((_0x2517cb) => {
-    addLine('Error fetching data: ' + _0x2517cb.message, 'error', 80)
-  })
+  const _0x1a3700 = 'https://api.lanyard.rest/v1/users/' + _0x3cdba4;
+  fetch(_0x1a3700)
+    .then((_0x2f4b4c) => {
+      if (!_0x2f4b4c.ok) {
+        throw new Error('HTTP error! Status: ' + _0x2f4b4c.status);
+      }
+      return _0x2f4b4c.json();
+    })
+    .then((_0x28a395) => {
+      if (_0x28a395.success) {
+        const { discord_user: _0x54d82a, activities: _0x279893 } = _0x28a395.data;
+        addLine('<span class="command">User: </span> ' + _0x54d82a.username, 'color2 margin', 80);
+        const _0x32d9f7 = _0x279893.filter((_0x21efe4) => _0x21efe4.name !== 'Spotify');
+        if (_0x32d9f7.length > 0) {
+          _0x32d9f7.forEach((_0xc45b6c) => {
+            addLine('<span class="command">Using: </span> '+ _0xc45b6c.name, 'color2 margin', 80);
+            addLine(' ' + _0xc45b6c.state, 'color2 margin', 80);
+            addLine(' ' + _0xc45b6c.details, 'color2 margin', 80);
+          });
+        } else {
+          addLine('No activities at the moment.', 'inherit margin', 80);
+        }
+      } else {
+        addLine('Failed to fetch data.', 'error', 80);
+      }
+    })
+    .catch((_0x2517cb) => {
+      addLine('Error fetching data: ' + _0x2517cb.message, 'error', 80);
+    });
 }
-const userId = '611920914606718996'
