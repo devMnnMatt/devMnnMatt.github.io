@@ -311,7 +311,7 @@ const userId = '611920914606718996';
 
 async function fetchData() {
   try {
-      const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mnnmatt&api_key=fa191ef7e3dbdcaed58cdc0201c52e3d&format=json&limit=1`);
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mnnmatt&api_key=fa191ef7e3dbdcaed58cdc0201c52e3d&format=json&limit=1`);
       const data = await response.json();
       if (data && data.recenttracks && data.recenttracks.track && Array.isArray(data.recenttracks.track)) {
           processRecentTrack(data.recenttracks.track);
