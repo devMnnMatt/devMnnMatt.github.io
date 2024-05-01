@@ -319,7 +319,7 @@ async function fetchData() {
     }
 }
 
-function nowplayingds(data) {
+function nowplaying(data) {
     try {
         if (data.recenttracks && data.recenttracks.track.length > 0) {
             const track = data.recenttracks.track[0];
@@ -342,15 +342,6 @@ function nowplayingds(data) {
     }
 }
 
-function getSpotifyUrl(track) {
-    if (track && track.url && track.url.includes('spotify')) {
-        return track.url;
-    } else {
-        const artist = encodeURIComponent(track.artist['#text']);
-        const song = encodeURIComponent(track.name);
-        return `https://open.spotify.com/search/${artist}%20${song}`;
-    }
-}
 
 function loopLines(_0x58c4ea, _0x4903af, _0x19c91a) {
 _0x58c4ea.forEach(function (_0x2a45d0, _0x4e2459) {
