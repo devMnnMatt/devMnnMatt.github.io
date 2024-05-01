@@ -270,7 +270,7 @@ switch (_0x2bd136.toLowerCase()) {
   case 'nowplaying':
   case 'now playing':
   case 'np':
-    fetchData()
+    fetchData();
     break
   case 'activity':
   case 'wyd':
@@ -310,36 +310,49 @@ setTimeout(function () {
 const userId = '611920914606718996';
 
 async function fetchData() {
-    try {
-        const response = await fetch('http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mnnmatt&api_key=dca6a275e2b39e1d9816355f961db4b9&format=json');
-        const data = await response.json();
-        nowplayingds(data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
+  try {
+      const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mnnmatt&api_key=fa191ef7e3dbdcaed58cdc0201c52e3d&format=json&limit=1`);
+      const data = await response.json();
+      if (data && data.recenttracks && data.recenttracks.track && Array.isArray(data.recenttracks.track)) {
+          processRecentTrack(data.recenttracks.track);
+      } else {
+          addLine('No track information available.', 'error', 0);
+      }
+  } catch (error) {
+      addLine(`Error fetching data: ${error}`, 'error', 0);
+  }
 }
 
-function nowplaying(data) {
-    try {
-        if (data.recenttracks && data.recenttracks.track.length > 0) {
-            const track = data.recenttracks.track[0];
-            const artist = track.artist['#text'];
-            const song = track.name;
-            const spotifyUrl = getSpotifyUrl(track);
-            const isPlaying = track['@attr'] && track['@attr']['nowplaying'];
+function processRecentTrack(track) {
+  try {
+      const recentTrack = track[0];
+      if (!recentTrack) {
+          addLine('No recent track information available.', 'error', 0);
+          return;
+      }
+      
+      if (recentTrack['@attr'] && recentTrack['@attr'].nowplaying === 'true') {
+          const artist = recentTrack.artist['#text'];
+          const song = recentTrack.name;
+          const spotifyUrl = getSpotifyUrl(recentTrack);
+          const trackUrl = spotifyUrl ? `<a href="${spotifyUrl}" target="_blank">${song}</a>` : song;
+          addLine(`Now Playing: ${trackUrl} by ${artist}`, 'mint', 0);
+      } else {
+          addLine('Music is currently paused.', 'inherit', 0);
+      }
+  } catch (error) {
+      addLine(`Error processing data: ${error}`, 'error', 0);
+  }
+}
 
-            if (isPlaying) {
-                const trackUrl = spotifyUrl ? `<a href="${spotifyUrl}" target="_blank">${song}</a>` : song;
-                console.log(`Now Playing: ${trackUrl} by ${artist}.`);
-            } else {
-                console.log('The music is currently paused.');
-            }
-        } else {
-            console.log('No track is currently playing.');
-        }
-    } catch (error) {
-        console.error('Error processing data:', error);
-    }
+function getSpotifyUrl(track) {
+  if (track && track.url && track.url.includes('spotify')) {
+      return track.url;
+  } else {
+      const artist = encodeURIComponent(track.artist['#text']);
+      const song = encodeURIComponent(track.name);
+      return `https://open.spotify.com/search/${artist}%20${song}`;
+  }
 }
 
 
