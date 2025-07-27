@@ -18,7 +18,7 @@ whois = [
 
 '&#127757; Living in Italy <a href="' + timeSite + '" target="_blank">(my current time)' + '</a>',
 
-"&#128218; Currently working as Robot Programmer.",
+"&#128218; Currently working as QC Metrology Technician.",
 
 "&#128187; Love Motorsport, Working on cars, Music and Learning new cool skills. ",
 
@@ -80,7 +80,7 @@ help = [
 restart = [
   '<span class="index">Opening the dev.matt Terminal...</span>',
 "┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑",  
-"|   Name: Matteo - Job: Robot Programmer - Hobbies: IT, Economy, Music, Motorsport, JDM cars, and more.   |",   
+"|      Name: Matteo - Job: Metrology Technician - Hobbies: IT, Economy, Music, Motorsport, and more.      |",   
 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙",  
 "                                                                                                  ", 
 "  ██████╗ ███████╗██╗   ██╗   ███╗   ███╗███╗   ██╗███╗   ██╗███╗   ███╗ █████╗ ████████╗████████╗",
