@@ -166,7 +166,7 @@ switch (_0x2bd136.toLowerCase()) {
     break
   case 'email':
     addLine(
-      'Opening mailto: <a href="mailto: mnnmatt@duck.com">mnnmatt@duck.com</a>',
+      'Opening mailto: <a href="mailto: mnnmatt@icloud.com">mnnmatt@icloud.com</a>',
       'color2',
       80
     ),
