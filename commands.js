@@ -3,7 +3,7 @@ var spotify = "https://open.spotify.com/user/ekdeu03srkfnbe5fmgiu8s2oq";
 var instagram = "https://www.instagram.com/mnn.matt_/";
 var discord = "https://discordid.netlify.app/?id=611920914606718996"
 var github = "https://github.com/devMnnMatt/";
-var email = 'mailto:mnnmatt@duck.com';
+var email = 'mailto:mnnmatt@icloud.com';
 var youtube = "https://www.youtube.com/";
 var twitch = "https://www.twitch.tv/";
 var anilist = "https://anilist.co/";
